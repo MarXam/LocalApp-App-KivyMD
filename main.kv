@@ -1,0 +1,517 @@
+#: import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+#Boton Volver
+<CustomizeScreen@MDBoxLayout>:
+    orientation: 'vertical'
+    text: ''
+    padding: 100
+    MDFillRoundFlatButton:
+        text: 'REGRESAR'
+        md_bg_color: 0, 1, 1, 1
+        pos_hint: {'center_x': 0.5}
+        on_release:
+            app.root.current = 'screen_principal'
+            app.root.transition = SlideTransition(direction= 'left')
+
+<ui>:
+    #Menu Principal
+    MDScreen:
+        name: 'screen_principal'
+        md_bg_color: "purple"
+        #Titulo principal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                orientation: 'horizontal'
+                padding: '10dp'
+                MDCard: 
+                    radius: '10dp'
+                    padding: '20dp'
+                    MDLabel:
+                        text: 'Bienvenidos A LocalApp'
+                        halign: 'center'
+                        pos_hint: {'center_y': 0.5}
+                    Image:
+                        source: 'images/Menu_Principal/home.png'
+                        halign: 'center'
+            #Botones
+            MDGridLayout: 
+                cols: 2
+                size_hint: 1, .8
+                padding: ['10dp','10dp','10dp','10dp']
+                spacing: '10dp'
+                #Boton Tiendas
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'vertical'
+                    ripple_behavior: True
+                    on_release: 
+                        app.root.transition = RiseInTransition()
+                        root.current = 'menu_tienda'
+                    Image:
+                        source: 'images/Menu_Principal/domicilio.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Tiendas'
+                            halign: 'center'
+                        MDLabel:
+                            text: 'Puedes ver todo el catalogo de tiendas de tu zona.'
+                            halign: 'center'
+                #Boton Pedidos
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'vertical'
+                    ripple_behavior: True
+                    on_release: 
+                        app.root.transition = RiseInTransition()
+                        root.current = 'menu_pedidos'
+                    Image:
+                        source: 'images/Menu_Principal/pedido-en-linea.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Pedidos'
+                            halign: 'center'
+                        MDLabel:
+                            text: 'Puedes ver el seguimiento de tu orden.'
+                            halign: 'center'
+                #Boton Usuario
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'vertical'
+                    ripple_behavior: True
+                    on_release: 
+                        app.root.transition = RiseInTransition()
+                        root.current = 'menu_usuario'
+                    Image:
+                        source: 'images/Menu_Principal/s.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Usuario'
+                            halign: 'center'
+                        MDLabel:
+                            text: 'Puedes cambiar tu datos personales y formas de pago.'
+                            halign: 'center'
+                #Boton Ayuda
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'vertical'
+                    ripple_behavior: True
+                    on_release: 
+                        app.root.transition = RiseInTransition()
+                        root.current = 'menu_ayuda'
+                    Image:
+                        source: 'images/Menu_Principal/help.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Ayuda.'
+                            halign: 'center'
+                        MDLabel:
+                            text: 'Puedes pedir ayuda con nuestro equipo.'
+                            halign: 'center'
+
+    #MenuTienda
+    MDScreen:
+        name: 'menu_tienda'
+        md_bg_color: "yellow"
+        #Titulo principal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                orientation: 'horizontal'
+                padding: '10dp'
+                MDCard: 
+                    radius: '3dp'
+                    padding: '7dp'
+                    MDLabel:
+                        text: 'Tiendas Disponibles'
+                        halign: 'center'
+                        pos_hint: {'center_y': 0.5}
+                    Image:
+                        source: 'images/Menu_Principal/domicilio.png'
+                        halign: 'center'
+            MDBoxLayout: 
+                cols: 2
+                size_hint: 1, .8
+                padding: ['10dp','10dp','10dp','10dp']
+                spacing: '10dp'
+                orientation: 'vertical'
+                #BotonCarniceria
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/carniceria.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'El mata vacas'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Carniceria'
+                            halign: 'center'
+                #BotonFarmacia
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/s.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'MedicinaJuly'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Farmacia'
+                            halign: 'center'
+                #BotonFloristeria
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/fifa.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Flores Luna'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Floristeria'
+                            halign: 'center'
+                #BotonHeladeria
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/heladeria.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Cream Ice'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Heladería'
+                            halign: 'center'
+                #BotonPanaderia
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/panaderia.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Pan al piso'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Panaderia'
+                            halign: 'center'
+                #BotonPizzeria
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    Image:
+                        source: 'images/Menu_Tienda/pizzeria.png'
+                        halign: 'center'
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Giorno Pizza'
+                            halign: 'center'
+                        MDLabel:
+                            text: ""
+                        MDLabel:
+                            text: 'Pizzeria'
+                            halign: 'center'
+                #Boton Volver
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDFillRoundFlatButton:
+                        text: 'REGRESAR'
+                        md_bg_color: "black"
+                        pos_hint: {'center_x': 0.5}
+                        on_release:
+                            app.root.current = 'screen_principal'
+                            app.root.transition = SlideTransition(direction= 'left')
+    #menu_pedidos
+    MDScreen:
+        name: 'menu_pedidos'
+        md_bg_color: "gray"
+        #Titulo principal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                orientation: 'horizontal'
+                padding: '10dp'
+                MDCard: 
+                    radius: '3dp'
+                    padding: '7dp'
+
+                    MDLabel:
+                        text: 'Pedidos'
+                        halign: 'center'
+                        pos_hint: {'center_y': 0.5}
+                    Image:
+                        source: 'images/Menu_Pedidos/pedido-en-linea.png'
+                        halign: 'center'
+            MDBoxLayout: 
+                cols: 2
+                size_hint: 1, .8
+                padding: ['10dp','10dp','10dp','10dp']
+                spacing: '10dp'
+                orientation: 'vertical'
+                #BotonCarniceria
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'vertical'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: 'Su pedido ya esta en camino.'
+                            halign: 'center'
+                        Image:
+                            source: 'images/Menu_Pedidos/mapa.png'
+                            halign: 'center'
+                        MDLabel:
+                            text: 'Gracias por esperar.'
+                            halign: 'center'
+                #Boton Volver
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDFillRoundFlatButton:
+                        text: 'REGRESAR'
+                        md_bg_color: "black"
+                        pos_hint: {'center_x': 0.5}
+                        on_release:
+                            app.root.current = 'screen_principal'
+                            app.root.transition = SlideTransition(direction= 'left')
+    #menu_usuario
+    MDScreen:
+        name: 'menu_usuario'
+        md_bg_color: "cyan"
+        #Titulo principal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                orientation: 'horizontal'
+                padding: '10dp'
+                MDCard: 
+                    radius: '3dp'
+                    padding: '7dp'
+                    Image:
+                        source: 'images/Menu_Usuario/s.png'
+                        halign: 'center'
+                    MDLabel:
+                        text: 'Usuario: Santiago Arango'
+                        halign: 'center'
+                        pos_hint: {'center_y': 0.5}
+            MDBoxLayout: 
+                cols: 2
+                size_hint: 1, .8
+                padding: ['10dp','10dp','10dp','10dp']
+                spacing: '10dp'
+                orientation: 'vertical'
+                #BotonNombre
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Nombre:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Kevin Santiago Arango Perafan'
+                            halign: 'center'
+                #BotonTelefono
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Numero de telefono:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: '354 8769348'
+                            halign: 'center'
+                #BotonDireccion
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Direccion:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Calle 14 58 Sur 32'
+                            halign: 'center'
+                #BotonMedioDePago
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Medio de pago:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Efectivo'
+                            halign: 'center'
+                #Boton Volver
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDFillRoundFlatButton:
+                        text: 'REGRESAR'
+                        md_bg_color: "black"
+                        pos_hint: {'center_x': 0.5}
+                        on_release:
+                            app.root.current = 'screen_principal'
+                            app.root.transition = SlideTransition(direction= 'left')
+    #Menu_ayuda
+    MDScreen:
+        name: 'menu_ayuda'
+        md_bg_color: "brown"
+        #Titulo principal
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                orientation: 'horizontal'
+                padding: '10dp'
+                MDCard: 
+                    radius: '3dp'
+                    padding: '7dp'
+                    MDLabel:
+                        text: 'Ayuda'
+                        halign: 'center'
+                        pos_hint: {'center_y': 0.5}
+                    Image:
+                        source: 'images/Menu_Ayuda/help.png'
+                        halign: 'center'
+            MDBoxLayout: 
+                cols: 2
+                size_hint: 1, .8
+                padding: ['10dp','10dp','10dp','10dp']
+                spacing: '10dp'
+                orientation: 'vertical'
+                #BotonIntroduccion
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Puede pedir ayuda atravez de los siguientes medios.'
+                            halign: 'center'
+                #BotonTelefono
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Numero de contacto:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: '354 8769348'
+                            halign: 'center'
+                #BotonDireccion
+                MDCard:
+                    radius: '10dp'
+                    spacing: '10dp'
+                    padding: '10dp'
+                    orientation: 'horizontal'
+                    ripple_behavior: True
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'Direccion de correo:'
+                            halign: 'center'
+                    MDBoxLayout:
+                        MDLabel:
+                            text: 'arii@localapp.com'
+                            halign: 'center'
+                #Boton Volver
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDFillRoundFlatButton:
+                        text: 'REGRESAR'
+                        md_bg_color: "black"
+                        pos_hint: {'center_x': 0.5}
+                        on_release:
+                            app.root.current = 'screen_principal'
+                            app.root.transition = SlideTransition(direction= 'left')
